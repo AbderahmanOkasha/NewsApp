@@ -1,4 +1,4 @@
-package com.loc.newsapp.presentation.onboarding
+package com.loc.newsapp.presentation
 
 import androidx.compose.ui.unit.dp
 
