@@ -19,7 +19,6 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         setContent {
             NewsAppTheme {
-
             }
         }
     }
