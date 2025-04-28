@@ -1,5 +1,7 @@
 package com.loc.newsapp.presentation.onboarding.components
 
+import android.content.res.Configuration
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -15,10 +17,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import com.loc.newsapp.R
 import com.loc.newsapp.presentation.Dimens.MediumPadding1
 import com.loc.newsapp.presentation.Dimens.MediumPadding2
 import com.loc.newsapp.presentation.onboarding.Page
+import com.loc.newsapp.presentation.onboarding.pages
+import com.loc.newsapp.ui.theme.NewsAppTheme
 
 @Composable
 fun OnBoardingPage(
@@ -48,5 +53,13 @@ fun OnBoardingPage(
             color = colorResource(id = R.color.text_medium)
         )
 
+    }
+}
+@Preview(showBackground = true)
+@Preview(uiMode = UI_MODE_NIGHT_YES)
+@Composable
+fun OnBoardingPagePreview() {
+    NewsAppTheme {
+        OnBoardingPage(page = pages[0])
     }
 }
