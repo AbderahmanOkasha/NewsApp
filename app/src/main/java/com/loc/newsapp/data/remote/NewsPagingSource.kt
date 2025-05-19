@@ -3,13 +3,12 @@ package com.loc.newsapp.data.remote
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.loc.newsapp.domain.model.Article
-import com.loc.newsapp.util.Constants.API_KEY
 
 class NewsPagingSource(
-    private val newsAPI: NewsAPI,
+    private val newsAPI: NewsApi,
     private val sources: String,
 
-) : PagingSource<Int , Article>() {
+    ) : PagingSource<Int , Article>() {
 
     private var totalNewsCount = 0
 
@@ -18,7 +17,7 @@ class NewsPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
         val page = params.key ?: 1
         return try {
-            val newsResponse = newsAPI.getNews(source = sources , page = page )
+            val newsResponse = newsAPI.getNews(sources = sources , page = page )
             totalNewsCount += newsResponse.articles.size
             val articles = newsResponse.articles.distinctBy { it.title }
             LoadResult.Page(
